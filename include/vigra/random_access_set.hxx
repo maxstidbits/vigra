@@ -73,9 +73,9 @@ public:
    /// value comperator
    typedef Compare value_compare;
    /// acclocator
-   typedef Alloc  allocator_type;
+   typedef Alloc allocator_type;
    /// const reference type
-   typedef typename Alloc::const_reference const_reference;
+   typedef const Key& const_reference;
    /// iterator type
    typedef typename VectorType::iterator iterator;
    /// const iterator type
@@ -87,9 +87,9 @@ public:
    /// const pointer type
    typedef typename VectorType::const_pointer const_pointer;
    /// const reverse iterator
-   typedef typename VectorType::const_reverse_iterator  const_reverse_iterator;
+   typedef typename VectorType::const_reverse_iterator const_reverse_iterator;
 
-   // memeber functions:
+   // member functions:
    // constructor
    RandomAccessSet(const size_t, const Compare& compare=Compare(), const Alloc& alloc=Alloc());
    RandomAccessSet(const Compare& compare=Compare(), const Alloc& alloc=Alloc());

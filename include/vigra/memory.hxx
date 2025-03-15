@@ -45,6 +45,8 @@
 #  include <memory>
 #endif
 
+#include <memory>
+
 #include <cstring>
 #include "metaprogramming.hxx"
 
@@ -131,13 +133,23 @@ alloc_initialize_n(std::size_t n, T const & initial, Alloc & alloc)
         std::size_t i=0;
         try
         {
-            for (; i < n; ++i)
-                alloc.construct(p+i, initial);
+            for (; i < n; ++i) {
+#if (__cplusplus >= 202002L) || (defined(_MSC_VER) && _MSVC_LANG >= 202002L)
+                std::construct_at(p+i, initial); // from c++20
+#else
+                alloc.construct(p+i, initial); // until c++20
+#endif
+            }
         }
         catch (...)
         {
-            for (std::size_t j=0; j < i; ++j)
-                alloc.destroy(p+j);
+            for (std::size_t j=0; j < i; ++j) {
+#if (__cplusplus >= 202002L) || (defined(_MSC_VER) && _MSVC_LANG >= 202002L)
+                std::destroy_at(p+j); // from c++20
+#else
+                alloc.destroy(p+j); // until c++20
+#endif
+            }
             alloc.deallocate(p, n);
             throw;
         }
