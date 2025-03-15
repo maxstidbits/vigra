@@ -42,6 +42,7 @@
 #include "array_vector.hxx"
 
 #include <ctime>
+#include <cstdint>
 
     // includes to get the current process and thread IDs
     // to be used for automated seeding
@@ -133,7 +134,7 @@ void seed(RandomSeedTag, RandomState<EngineTag> & engine)
     seedData.push_back(static_cast<UInt32>(clock()));
     seedData.push_back(++globalCount);
 
-    std::size_t ptr((char*)&engine - (char*)0);
+    const uintptr_t ptr = reinterpret_cast<uintptr_t>(&engine);
     seedData.push_back(static_cast<UInt32>((ptr & 0xffffffff)));
     static const UInt32 shift = sizeof(ptr) > 4 ? 32 : 16;
     seedData.push_back(static_cast<UInt32>((ptr >> shift)));
