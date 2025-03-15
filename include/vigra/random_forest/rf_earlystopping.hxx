@@ -27,8 +27,8 @@ class StopBase
 {
 protected:
     ProblemSpec<> ext_param_;
-    int tree_count_ ;
-    bool is_weighted_;
+    int tree_count_ = 0;
+    bool is_weighted_ = false;
 
 public:
     template<class T>
@@ -424,7 +424,7 @@ public:
     int max_depth_;
     int min_size_;
 
-    int max_depth_reached; //for debug maximum reached depth
+    int max_depth_reached = 0; //for debug maximum reached depth
 
     DepthAndSizeStopping()
         : max_depth_(NumericTraits<int>::max()), min_size_(0)

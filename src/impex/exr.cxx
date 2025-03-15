@@ -55,6 +55,7 @@
 using namespace Imf;
 using namespace Imath;
 
+
 namespace vigra {
 
     CodecDesc ExrCodecFactory::getCodecDesc() const
@@ -379,7 +380,7 @@ namespace vigra {
         scanline++;
     }
 
-    void ExrEncoderImpl::setCompressionType( const std::string & comp, int quality){
+    void ExrEncoderImpl::setCompressionType( const std::string & comp, int /*quality*/ ){
        if (comp == "NONE")
            exrcomp = NO_COMPRESSION;
        else if (comp == "ZIP")

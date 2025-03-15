@@ -2227,7 +2227,7 @@ class DynamicAccumulatorChain
                                          normalizeString(tag), acc_detail::ActivateTag_Visitor());
     }
 
-    bool isActiveImpl(std::string tag, acc_detail::TagIsActive_Visitor & v) const
+    bool isActiveImpl(std::string tag, const acc_detail::TagIsActive_Visitor & v) const
     {
         return acc_detail::ApplyVisitorToTag<AccumulatorTags>::exec(*this, normalizeString(tag), v);
     }
