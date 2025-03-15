@@ -45,8 +45,6 @@
 #  include <memory>
 #endif
 
-#include <memory>
-
 #include <cstring>
 #include "metaprogramming.hxx"
 

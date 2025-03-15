@@ -55,7 +55,6 @@
 using namespace Imf;
 using namespace Imath;
 
-
 namespace vigra {
 
     CodecDesc ExrCodecFactory::getCodecDesc() const

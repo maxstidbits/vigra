@@ -582,7 +582,6 @@ class BasicImage
     typedef Alloc allocator_type;
 
     typedef Alloc Allocator;
-
     typedef typename std::allocator_traits<Alloc>::template rebind_alloc<PIXELTYPE*> LineAllocator;
 
         /** construct image of size 0x0
