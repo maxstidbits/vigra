@@ -39,6 +39,7 @@
 #include "utilities.hxx"
 #include "array_vector.hxx"
 #include "copyimage.hxx"
+#include <memory>
 
 namespace vigra {
 
@@ -68,7 +69,7 @@ namespace vigra {
     Namespace: vigra
 */
 template <class ImageType,
-      class Alloc = typename ImageType::allocator_type::template rebind<ImageType>::other >
+      class Alloc = typename std::allocator_traits<typename ImageType::allocator_type>::template rebind_alloc<ImageType> >
 class ImageArray
 {
     Size2D imageSize_;
@@ -464,7 +465,7 @@ public:
     Namespace: vigra
 */
 template <class ImageType,
-      class Alloc = typename ImageType::allocator_type::template rebind<ImageType>::other >
+      class Alloc = typename std::allocator_traits<typename ImageType::allocator_type>::template rebind_alloc<ImageType> >
 class ImagePyramid
 {
     int lowestLevel_, highestLevel_;

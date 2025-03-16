@@ -46,9 +46,10 @@
 #include "utilities.hxx"
 #include "multi_shape.hxx"
 
-#include <functional>
-#include <vector>
 #include <cmath>
+#include <functional>
+#include <memory>
+#include <vector>
 
 namespace vigra {
 
@@ -316,7 +317,7 @@ inline double angularGaborSigma(int directionCount, double centerFrequency)
     Namespace: vigra
 */
 template <class ImageType,
-          class Alloc = typename ImageType::allocator_type::template rebind<ImageType>::other >
+          class Alloc = typename std::allocator_traits<typename ImageType::allocator_type>::template rebind_alloc<ImageType> >
 class GaborFilterFamily
 : public ImageArray<ImageType, Alloc>
 {
