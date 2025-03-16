@@ -182,8 +182,13 @@ template <class T, class Alloc>
 inline void
 destroy_dealloc_impl(T * p, std::size_t n, Alloc & alloc, VigraFalseType /* isPOD */)
 {
-    for (std::size_t i=0; i < n; ++i)
+    for (std::size_t i=0; i < n; ++i) {
+#if (__cplusplus >= 202002L) || (defined(_MSC_VER) && _MSVC_LANG >= 202002L)
+        std::destroy_at(p + i);
+#else
         alloc.destroy(p + i);
+#endif
+    }
     alloc.deallocate(p, n);
 }
 
