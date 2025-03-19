@@ -280,7 +280,7 @@ blockwiseLabeling(DataBlocksIterator data_blocks_begin, DataBlocksIterator data_
 
 template <class LabelBlocksIterator, class MappingIterator>
 void toGlobalLabels(LabelBlocksIterator label_blocks_begin, LabelBlocksIterator label_blocks_end,
-                    MappingIterator mapping_begin, MappingIterator mapping_end)
+                    MappingIterator mapping_begin, [[maybe_unused]] MappingIterator mapping_end)
 {
     typedef typename LabelBlocksIterator::value_type LabelBlock;
     for( ; label_blocks_begin != label_blocks_end; ++label_blocks_begin, ++mapping_begin)

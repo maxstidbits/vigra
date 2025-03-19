@@ -120,7 +120,7 @@ class SplineImageView
 
         /** The order of the spline used.
         */
-    enum StaticOrder { order = ORDER };
+    constexpr static int order = ORDER;
 
         /** The type of the internal image holding the spline coefficients.
         */
@@ -132,7 +132,8 @@ class SplineImageView
     typedef typename InternalTraverser::column_iterator InternalColumnIterator;
     typedef BSpline<ORDER, double> Spline;
 
-    enum { ksize_ = ORDER + 1, kcenter_ = ORDER / 2 };
+    constexpr static int ksize_ = ORDER + 1;
+    constexpr static int kcenter_ = ORDER / 2;
 
   public:
 
