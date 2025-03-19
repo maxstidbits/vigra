@@ -94,6 +94,7 @@ Many thanks to all!
       <li> fix typo in multi_iterator_coupled -- Contributed by lnw -- https://github.com/ukoethe/vigra/pull/592
       <li> fix RandomAccessSet::insert(pos, val) function for gcc-15 and clang-19 -- Contributed by lnw -- https://github.com/ukoethe/vigra/pull/599
       <li> Do not inherit from std::iterator as it is deprecated in c++17 -- Contributed by lnw -- https://github.com/ukoethe/vigra/pull/601
+      <li> modernise for c++20 -- Contributed by lnw -- https://github.com/ukoethe/vigra/pull/605
       <li> Move away from inline global regex flag -- Contributed by parona-source -- https://github.com/ukoethe/vigra/pull/594
       <li> CI: add python 3.13 -- Contributed by t0b3 -- https://github.com/ukoethe/vigra/pull/595
       <li> Use posix shell instead of bash for tests -- Contributed by sertonix -- https://github.com/ukoethe/vigra/pull/600
