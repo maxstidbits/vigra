@@ -10,7 +10,7 @@ conda create \
     --name vigra \
     python=${PYTHON_VERSION} pytest c-compiler cxx-compiler \
     zlib libjpeg-turbo libpng libtiff hdf5 fftw \
-    boost boost-cpp numpy h5py sphinx \
+    libboost-python libboost-python-devel numpy h5py sphinx \
     openexr lemon cmake make ruff
 
 if [[ `uname` == 'Darwin' ]]; then
