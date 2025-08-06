@@ -2,11 +2,11 @@ set -ex
 
 PYTHON_VERSION="${PYTHON_VERSION:-3.10}"
 
-conda config --add channels conda-forge
-conda config --remove channels defaults || true
 conda config --show
 conda create \
     --quiet --yes \
+    --override-channels \
+    -c conda-forge -c nodefaults \
     --name vigra \
     python=${PYTHON_VERSION} pytest c-compiler cxx-compiler \
     zlib libjpeg-turbo libpng libtiff hdf5 fftw \
