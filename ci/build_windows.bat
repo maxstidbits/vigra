@@ -2,14 +2,13 @@
 call conda info
 if errorlevel 1 exit 1
 
-call conda config --add channels conda-forge
-if errorlevel 1 exit 1
-call conda config --remove channels defaults || true
-if errorlevel 1 exit 1
 call conda config --show
 if errorlevel 1 exit 1
 
 call conda create ^
+    --override-channels ^
+    -c conda-forge ^
+    -c nodefaults ^
     --quiet --yes ^
     --name vigra ^
     python=%PYTHON_VERSION% pytest c-compiler cxx-compiler ^
